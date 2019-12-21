@@ -41,8 +41,7 @@ namespace StudentLife.Controllers
         }
 
         public async Task<IActionResult> login( [Bind ("Username,Passwordd")] string Username, string Passwordd) {
-            return View("../NudimTrazimPrevoz/nudimTrazimPrevoz");
-
+            
             using (var db = new DatabaseContext())
             {
                 Student s = db.Student.Where( e => e.KorisnickoIme == Username && e.Password == Passwordd ).FirstOrDefault();
