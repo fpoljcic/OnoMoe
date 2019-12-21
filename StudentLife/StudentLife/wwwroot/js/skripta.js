@@ -1,7 +1,7 @@
 var roundLatLng = Formatters.roundLatLng;
-var center = [18.373692, 43.848617];
 var marker1Centar = [18.303172, 43.833783];
 var marker2Centar = [18.397759, 43.855403];
+var centar = [(marker1Centar[0] + marker2Centar[0]) / 2, (marker1Centar[1] + marker2Centar[1]) / 2];
 var popup = new tt.Popup({
     offset: 35
 });
@@ -11,7 +11,7 @@ var map = tt.map({
     container: 'map',
     style: 'tomtom://vector/1/basic-main',
     dragPan: !window.isMobileOrTablet(),
-    center: center,
+    center: centar,
     zoom: 12
 });
 
@@ -20,7 +20,7 @@ map.addControl(new tt.NavigationControl());
 
 marker1 = createMarker('https://img.icons8.com/ios-filled/50/000000/a.png', marker1Centar, '#0000CD', 'Početak', false);
 marker2 = createMarker('https://img.icons8.com/ios-filled/50/000000/b.png', marker2Centar, '#0000CD', 'Kraj', false);
-markerK = createMarker('https://img.icons8.com/ios-filled/50/000000/contacts.png', center, '#0000CD', 'Vaša lokacija', true);
+markerK = createMarker('https://img.icons8.com/ios-filled/50/000000/contacts.png', centar, '#0000CD', 'Vaša lokacija', true);
 
 function onDragEnd1() {
     var lngLat = marker1.getLngLat();
@@ -103,4 +103,17 @@ function createMarker(icon, position, color, popupText, drag) {
         		 .setLngLat(position)
         		 .setPopup(popup)
         		 .addTo(map);
+}
+
+function promjeniCentar(pocetak, kraj) {
+    marker1.remove();
+    marker2.remove();
+    markerK.remove();
+    marker1Centar = pocetak;
+    marker2Centar = kraj;
+    marker1 = createMarker('https://img.icons8.com/ios-filled/50/000000/a.png', marker1Centar, '#0000CD', 'Početak', false);
+    marker2 = createMarker('https://img.icons8.com/ios-filled/50/000000/b.png', marker2Centar, '#0000CD', 'Kraj', false);
+    centar = [(marker1Centar[0] + marker2Centar[0]) / 2, (marker1Centar[1] + marker2Centar[1]) / 2];
+    markerK = createMarker('https://img.icons8.com/ios-filled/50/000000/contacts.png', centar, '#0000CD', 'Vaša lokacija', true);
+    map.setCenter(centar);
 }

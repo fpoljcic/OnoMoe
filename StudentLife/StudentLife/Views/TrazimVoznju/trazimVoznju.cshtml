@@ -83,16 +83,15 @@
                     {
                         Student student = new DatabaseContext().dajStudenta(voznje[i].StudentID);
                         string red = @voznje[i].VrijemePolaska.ToShortTimeString() + " - " + @student.Ime + " " + @student.Prezime;
-                        <tr><td><button class="listaDugmadi">@red</button></td></tr>
+                        <tr><td id=@i><button class="listaDugmadi" type="submit" onclick="promjeniCentar(@voznje[i].PocetakRute, @voznje[i].KrajRute)">@red</button></td></tr>
                     }
                 }
             </table>
     		<div id="novi">
-    		<form method="post">
+    		<form method="post" asp-controller="TrazimVoznju" asp-action="rezervisiMjesto">
     			<button class="btn btn-primary btn-block" id="btnPotvrdiVoznju" type="submit" style="background: #f82249;color:white;outline: none;"><b>POTVRDI VOŽNJU</b></button>
     		</form>  
     	</div>
-
     	</div>
 
     	<div class="formaRegister">

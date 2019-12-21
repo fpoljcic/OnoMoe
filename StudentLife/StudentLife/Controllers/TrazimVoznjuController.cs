@@ -12,5 +12,10 @@ namespace StudentLife.Controllers
         {
             return View();
         }
+
+        public void rezervisiMjesto()
+        {
+
+        }
     }
 }
