@@ -33,5 +33,18 @@ namespace StudentLife.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+        public void UpisiStudenta ( [Bind( "StudentID,Ime,Prezime,Email,KorisnickoIme,Password" )] Student student, string Password2 )
+        {
+
+            Console.WriteLine( student.Ime );
+        
+
+
+
+        }
+
+        
     }
 }
