@@ -37,10 +37,11 @@ namespace StudentLife.Controllers
 
         public async Task<IActionResult> DrugaStranica()
         {
-            return View( "../NudimTrazimPrevoz/NTP");
+            return View("../NudimTrazimPrevoz/nudimTrazimPrevoz");
         }
 
         public async Task<IActionResult> login( [Bind ("Username,Passwordd")] string Username, string Passwordd) {
+            return View("../NudimTrazimPrevoz/nudimTrazimPrevoz");
 
             using (var db = new DatabaseContext())
             {
@@ -52,7 +53,7 @@ namespace StudentLife.Controllers
                 HttpContext.Session.SetString( "user", s.KorisnickoIme );
 
             }
-            return View( "../NudimTrazimPrevoz/NTP" );
+            return View("../NudimTrazimPrevoz/nudimTrazimPrevoz");
 
         }
 

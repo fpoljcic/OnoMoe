@@ -12,5 +12,10 @@ namespace StudentLife.Controllers
         {
             return View();
         }
+
+        public async Task<IActionResult> pretrazi([Bind("datum,vrijeme")] string datum, string vrijeme)
+        {
+            return View("../TrazimVoznju/trazimVoznju");
+        }
     }
 }
