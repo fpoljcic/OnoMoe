@@ -619,7 +619,30 @@ body.mobile-nav-active #mobile-nav-toggle {
   border: solid #ffffff 1.5px; 
   color: white;
 }
+.pending {
+    width: 10vw;
+    background-color: #f00f0f;
+    border-color: #f00f0f;
+    border-radius: 5px;
+    color: white;
+    font-family: "Raleway";
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-align: left;
+}
 
+.accepted {
+    width: 10vw;
+    background-color: #1bf00f;
+    border-color: #1bf00f;
+    border-radius: 5px;
+    color: white;
+    font-family: "Raleway";
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+}
 
 #intro .play-btn {
   width: 94px;
