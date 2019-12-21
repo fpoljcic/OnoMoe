@@ -8,18 +8,19 @@ namespace StudentLife.Models {
     public class Student {
         [ScaffoldColumn( false )]
 
+            [Required]
+        public int StudentID { get; set; }
         [Required]
-        int RegistrovaniStudentId { get; set; }
+        public string Ime { get; set; }
         [Required]
-        string Ime { get; set; }
+        public string Prezime { get; set; }
         [Required]
-        string Prezime { get; set; }
+        public string Email { get; set; }
         [Required]
-        string Email { get; set; }
+        public string Password { get; set; }
         [Required]
-        string Password { get; set; }
-        [Required]
-        int Bodovi { get; set; }
+        
+        public int Bodovi { get; set; }
         [Required]
         public string KorisnickoIme { get; set; }
 

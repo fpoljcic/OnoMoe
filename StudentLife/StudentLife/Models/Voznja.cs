@@ -11,7 +11,7 @@ namespace StudentLife.Models {
         [Required]
         public int VoznjaID { get; set; }
         [Required]
-        public int StudentId { get; set; }
+        public int StudentID { get; set; }
         public Student Student { get; set; }
         [Required]
         public DateTime VrijemePolaska { get; set; }

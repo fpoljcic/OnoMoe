@@ -9,14 +9,16 @@ namespace StudentLife.Models {
         [ScaffoldColumn( false )]
 
         [Required]
-        public int MarkerId { get; set; }
+        public int MarkerID { get; set; }
         [Required]
-        public int StudentId { get; set; }
+        public int StudentID { get; set; }
         public Student Student {get; set;}
 
         [Required]
-        public int VoznjaId { get; set; }
+        public int VoznjaID { get; set; }
         public  Voznja Voznja { get; set; }
+        [Required]
+        public string Koordinate { get; set; }
 
 
     }
