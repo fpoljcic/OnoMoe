@@ -84,7 +84,7 @@
     	</div>
     	<script>
     				function pritisniTrazimVoznju() {
-    					document.getElementById("formaRegister").innerHTML = "<div id=\"novi\"><p id=\"datumVrijeme\">Datum</p><input name=\"datum\" data-role=\"datepicker\" data-year=\"false\"><br><br><br><br><p id=\"datumVrijeme\">Vrijeme</p><input name=\"vrijeme\" data-role=\"timepicker\" data-seconds=\"false\"><br><form asp-action=\"pretrazi\"><button class=\"btn btn-primary btn-block\" id=\"btnTrazimVoznju\" type=\"submit\" style=\"background: #4ee44e;color:white;outline: none;margin:0;\"><b>POTVRDI</b></button></form></div>";
+    					document.getElementById("formaRegister").innerHTML = "<div id=\"novi\"><p id=\"datumVrijeme\">Datum</p><input name=\"datum\" data-role=\"datepicker\" data-year=\"false\"><br><br><br><br><p id=\"datumVrijeme\">Vrijeme</p><input name=\"vrijeme\" data-role=\"timepicker\" data-seconds=\"false\"><br><form action=\"/NudimTrazimPrevoz/pretrazi\" method=\"post\"><button class=\"btn btn-primary btn-block\" id=\"btnTrazimVoznju\" type=\"submit\" style=\"background: #4ee44e;color:white;outline: none;margin:0;\"><b>POTVRDI</b></button></form></div>";
     				}
     	</script>
     </section>
