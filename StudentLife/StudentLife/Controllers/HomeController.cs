@@ -42,12 +42,18 @@ namespace StudentLife.Controllers
 
         public async Task<IActionResult> login( [Bind ("Username,Passwordd")] string Username, string Passwordd) {
 
+            using (var db = new DatabaseContext())
+            {
+                Student s = db.Student.Where( e => e.KorisnickoIme == Username && e.Password == Passwordd ).FirstOrDefault();
+                if(s == null)
+                    return View( "Index" );
 
+                HttpContext.Session.SetInt32( "id", s.StudentID );
+                HttpContext.Session.SetString( "user", s.KorisnickoIme );
 
+            }
             return View( "../NudimTrazimPrevoz/NTP" );
 
-
-            return View("Index");
         }
 
 
