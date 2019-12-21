@@ -50,6 +50,7 @@ namespace StudentLife.Controllers
 
                 HttpContext.Session.SetInt32( "id", s.StudentID );
                 HttpContext.Session.SetString( "user", s.KorisnickoIme );
+                HttpContext.Session.SetString( "ime", s.Ime );
 
             }
             return View("../NudimTrazimPrevoz/nudimTrazimPrevoz");
