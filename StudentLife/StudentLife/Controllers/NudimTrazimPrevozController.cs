@@ -14,7 +14,6 @@ namespace StudentLife.Controllers
 
         public async Task<IActionResult> pretrazi([Bind("datum,vrijeme")] string datum, string vrijeme)
         {
-            string what = datum;
             return View("../TrazimVoznju/trazimVoznju");
         }
         

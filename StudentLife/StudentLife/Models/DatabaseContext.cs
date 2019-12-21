@@ -36,5 +36,31 @@ namespace StudentLife.Models {
 
 
         }
+
+        public List<Voznja> dajVoznje(string datum, string vrijeme)
+        {
+            DateTime dateTime = new DateTime(Convert.ToInt32(datum.Substring(0, datum.IndexOf("-"))), Convert.ToInt32(datum.Substring(datum.IndexOf("-") + 1, datum.Length - datum.LastIndexOf("-") - 1)), Convert.ToInt32(datum.Substring(datum.LastIndexOf("-") + 1)));
+
+            //List<Voznja> voznje = Voznja.Where((Voznja voznja) => voznja.VrijemePolaska.Date.Equals(dateTime.Date) && voznja.VrijemePolaska.TimeOfDay.CompareTo(new DateTime(vrijeme).TimeOfDay) >= 0 ).ToList();
+            //reservations.Sort((Reservation a, Reservation b) => DateTime.Compare(a.DateTime, b.DateTime));
+            //return reservations;
+            return null;
+        }
+
+        public List<Voznja> MojePonudjeneVoznje(int trenutniUserID)
+        {
+            return Voznja.Where(voznja => voznja.StudentID == trenutniUserID).ToList();
+        }
+
+        public List<Voznja> MojeTrazeneVoznje(int trenutniUserID)
+        {
+            List<Marker> markeri = Marker.Where(marker => marker.StudentID == trenutniUserID).ToList();
+            List<Voznja> voznje = new List<Voznja>();
+            foreach (Marker m in markeri)
+            {
+                voznje.Add(m.Voznja);
+            }
+            return voznje;
+        }
     }
 }
