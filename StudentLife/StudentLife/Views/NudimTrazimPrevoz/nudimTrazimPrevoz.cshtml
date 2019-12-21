@@ -53,15 +53,15 @@
 
     		<nav id="nav-menu-container">
     			<form method="post">
-    				<ul class="nav-menu">
-    					<li><a href="#speakers"></a></li>
-    					<li><a href="#speakers"></a></li>
-    					<li><a href="#speakers"></a></li>
-    					<li> </li>
-    					<li> </li>
-    					<li><button id="btnPrijaviSe" type="submit" style="background: #f82249; border-radius: 50px; border: none; width:100px;color:white">Odjavi se</button></li>
-    					<li></li>
-    				</ul>
+                    <ul class="nav-menu">
+                        <li><a href="#">Početna</a></li>
+                        <li><a href="@Url.Action("Index", "MojePonudjeneVoznje")">Moje ponuđene vožnje</a></li>
+                        <li><a href="@Url.Action("Index", "MojeTrazeneVoznje")">Moje tražene vožnje</a></li>
+                        <li> </li>
+                        <li> </li>
+                        <li><button id="btnOdjaviSe" type="submit" style="background: #f82249; border-radius: 50px; border: none; width:100px;color:white">Odjavi se</button></li>
+                        <li></li>
+                    </ul>
     			</form>
     		</nav><!-- #nav-menu-container -->
     	</div>
@@ -77,10 +77,10 @@
 
     	<div id="formaRegister">
 
-    			<button class="btn btn-primary btn-block" id="btnNudimVoznju" onclick="pritisniTrazimVoznju()" type="submit" style="background: white;color:black;outline: none"><b>TRAŽIM VOŽNJU</b></button>
+    			<button class="btn btn-primary btn-block" id="btnNudimVoznju" onclick="pritisniTrazimVoznju()" type="submit" style="background: white;color:black;outline: none; margin-right: 10px;"><b>TRAŽIM VOŽNJU</b></button>
     			
     		<form asp-controller="NudimTrazimPrevoz" asp-action="Nudim">
-    			<button class="btn btn-primary btn-block" id="btnTrazimVoznju" type="submit" style="background: #f82249;color:white;outline: none;"><b>NUDIM VOŽNJU</b></button>
+    			<button class="btn btn-primary btn-block" id="btnTrazimVoznju" type="submit" style="background: #f82249;color:white;outline: none;margin-left: 10px;"><b>NUDIM VOŽNJU</b></button>
     		</form>       
     	</div>
     	<script>

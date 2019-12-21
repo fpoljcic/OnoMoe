@@ -565,6 +565,7 @@ div.month{
     font-family: "Raleway";
     outline: none;
 }
+
 #intro #btnTrazimVoznju {
     background-color: #ffffff;
     margin-right: 10px;
@@ -575,7 +576,7 @@ div.month{
 }
 
 
-#intro #btnNudimVoznju {
+#intro #btnNudimVoznuju {
     background-color: #c3c3c3;
     color: #000000;
 }
