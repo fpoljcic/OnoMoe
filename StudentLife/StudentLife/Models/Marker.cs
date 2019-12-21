@@ -20,6 +20,8 @@ namespace StudentLife.Models {
         [Required]
         public string Koordinate { get; set; }
 
+        [Required]
+        public int Status { get; set; }
 
     }
 }
