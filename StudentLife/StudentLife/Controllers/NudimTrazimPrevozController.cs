@@ -10,7 +10,11 @@ namespace StudentLife.Controllers
 {
     public class NudimTrazimPrevozController : Controller
     {
-       
+
+        public IActionResult Index()
+        {
+            return View("nudimTrazimPrevoz");
+        }
 
         public async Task<IActionResult> pretrazi([Bind("datum,vrijeme")] string datum, string vrijeme)
         {
