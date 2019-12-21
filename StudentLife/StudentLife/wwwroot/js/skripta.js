@@ -5,6 +5,7 @@ var centar = [(marker1Centar[0] + marker2Centar[0]) / 2, (marker1Centar[1] + mar
 var popup = new tt.Popup({
     offset: 35
 });
+var i = 1;
 
 var map = tt.map({
     key: 'Tx9B4cZ2IumFk28ymZwzp2B17tcHt6nZ',
@@ -53,34 +54,38 @@ function findFirstBuildingLayerId() {
     throw new Error('Map style does not contain any layer with fill-extrusion type.');
 }
 
-map.once('load', function() {
+map.once('load', function () {
+    obojiRutu();
+});
+
+function obojiRutu() {
     tt.services.calculateRoute({
         key: 'Tx9B4cZ2IumFk28ymZwzp2B17tcHt6nZ',
         traffic: false,
         locations: marker1Centar + ":" + marker2Centar
     })
-    .go()
-    .then(function(response) {
-        var geojson = response.toGeoJson();
-        map.addLayer({
-            'id': 'route',
-            'type': 'line',
-            'source': {
-                'type': 'geojson',
-                'data': geojson
-            },
-            'paint': {
-                'line-color': '#f82249',
-                'line-width': 8
-            }
-        }, findFirstBuildingLayerId());
-        var bounds = new tt.LngLatBounds();
-        geojson.features[0].geometry.coordinates.forEach(function(point) {
-            bounds.extend(tt.LngLat.convert(point));
+        .go()
+        .then(function (response) {
+            var geojson = response.toGeoJson();
+            map.addLayer({
+                'id': 'route' + i,
+                'type': 'line',
+                'source': {
+                    'type': 'geojson',
+                    'data': geojson
+                },
+                'paint': {
+                    'line-color': '#f82249',
+                    'line-width': 8
+                }
+            }, findFirstBuildingLayerId());
+            var bounds = new tt.LngLatBounds();
+            geojson.features[0].geometry.coordinates.forEach(function (point) {
+                bounds.extend(tt.LngLat.convert(point));
+            });
+            map.fitBounds(bounds, { duration: 0, padding: 50 });
         });
-        map.fitBounds(bounds, { duration: 0, padding: 50 });
-    });
-});
+}
 
 function createMarker(icon, position, color, popupText, drag) {
     var markerElement = document.createElement('div');
@@ -93,16 +98,16 @@ function createMarker(icon, position, color, popupText, drag) {
     iconElement.className = 'marker-icon';
     iconElement.style.backgroundImage = 'url(' + icon + ')';
     markerContentElement.appendChild(iconElement);
-    var popup = new tt.Popup({offset: 30}).setText(popupText);
+    var popup = new tt.Popup({ offset: 30 }).setText(popupText);
     if (!drag)
-    return new tt.Marker({element: markerElement, anchor: 'bottom'})
-        		 .setLngLat(position)
-        		 .setPopup(popup)
-        		 .addTo(map);
-    return new tt.Marker({element: markerElement, draggable: true})
-        		 .setLngLat(position)
-        		 .setPopup(popup)
-        		 .addTo(map);
+        return new tt.Marker({ element: markerElement, anchor: 'bottom' })
+            .setLngLat(position)
+            .setPopup(popup)
+            .addTo(map);
+    return new tt.Marker({ element: markerElement, draggable: true })
+        .setLngLat(position)
+        .setPopup(popup)
+        .addTo(map);
 }
 
 function promjeniCentar(pocetak, kraj) {
@@ -116,4 +121,7 @@ function promjeniCentar(pocetak, kraj) {
     centar = [(marker1Centar[0] + marker2Centar[0]) / 2, (marker1Centar[1] + marker2Centar[1]) / 2];
     markerK = createMarker('https://img.icons8.com/ios-filled/50/000000/contacts.png', centar, '#0000CD', 'Vaša lokacija', true);
     map.setCenter(centar);
+    map.removeLayer('route' + i);
+    i++;
+    obojiRutu();
 }
