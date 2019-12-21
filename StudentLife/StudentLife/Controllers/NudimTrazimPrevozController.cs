@@ -23,5 +23,10 @@ namespace StudentLife.Controllers
 
             return HttpContext.Session.GetString( "user" );
         }
+
+        public async Task<IActionResult> Nudim()
+        {
+            return View( "../NudimVoznju/nudimVoznju" );
+        }
     }
 }
