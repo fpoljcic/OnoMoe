@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
 namespace StudentLife.Models {
-    public class RegistrovaniStudent {
+    public class Student {
         [ScaffoldColumn( false )]
 
         [Required]
@@ -20,7 +20,8 @@ namespace StudentLife.Models {
         string Password { get; set; }
         [Required]
         int bodovi { get; set; }
-
+        [Required]
+        public string KorisnickoIme { get; set; }
 
 
     }
