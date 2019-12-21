@@ -37,14 +37,19 @@ namespace StudentLife.Models {
 
         }
 
+        public Student dajStudenta(int id)
+        {
+            return Student.Where((Student student) => student.StudentID == id).FirstOrDefault();
+        }
+
         public List<Voznja> dajVoznje(string datum, string vrijeme)
         {
             DateTime dateTime = new DateTime(Convert.ToInt32(datum.Substring(0, datum.IndexOf("-"))), Convert.ToInt32(datum.Substring(datum.IndexOf("-") + 1, datum.Length - datum.LastIndexOf("-") - 1)), Convert.ToInt32(datum.Substring(datum.LastIndexOf("-") + 1)));
+            DateTime dateTime2 = new DateTime(2019, 12, 21, Convert.ToInt32(vrijeme.Substring(0, vrijeme.IndexOf(":"))), Convert.ToInt32(vrijeme.Substring(vrijeme.IndexOf(":") + 1, vrijeme.Length - vrijeme.LastIndexOf(":") - 1)), 0);
 
-            //List<Voznja> voznje = Voznja.Where((Voznja voznja) => voznja.VrijemePolaska.Date.Equals(dateTime.Date) && voznja.VrijemePolaska.TimeOfDay.CompareTo(new DateTime(vrijeme).TimeOfDay) >= 0 ).ToList();
-            //reservations.Sort((Reservation a, Reservation b) => DateTime.Compare(a.DateTime, b.DateTime));
-            //return reservations;
-            return null;
+            List<Voznja> voznje = Voznja.Where((Voznja voznja) => voznja.VrijemePolaska.Date.Equals(dateTime.Date) && voznja.VrijemePolaska.TimeOfDay.CompareTo(dateTime2.TimeOfDay) >= 0 ).ToList();
+            voznje.Sort((Voznja a, Voznja b) => DateTime.Compare(a.VrijemePolaska, b.VrijemePolaska));
+            return voznje;
         }
 
         public List<Voznja> MojePonudjeneVoznje(int trenutniUserID)

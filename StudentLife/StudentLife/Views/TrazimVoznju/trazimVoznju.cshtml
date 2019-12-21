@@ -76,13 +76,17 @@
     ============================-->
     <section id="intro">
     	<div class="intro-container wow fadeIn">
-    		<table id="listaVoznji">
-    			<tr><td><button class="listaDugmadi">Lista1</button></td></tr>
-    			<tr><td><button class="listaDugmadi">Lista2</button></td></tr>
-    			<tr><td><button class="listaDugmadi">Lista3</button></td></tr>
-    			<tr><td><button class="listaDugmadi">Lista4</button></td></tr>
-    			<tr><td><button class="listaDugmadi">Lista5</button></td></tr>
-    		</table>
+            <table id="listaVoznji">
+                @{
+                    List<Voznja> voznje = new DatabaseContext().dajVoznje(ViewData["datum"].ToString(), ViewData["vrijeme"].ToString());
+                    for (int i = 0; i < voznje.Count; i++)
+                    {
+                        Student student = new DatabaseContext().dajStudenta(voznje[i].StudentID);
+                        string red = @voznje[i].VrijemePolaska.ToShortTimeString() + " - " + @student.Ime + " " + @student.Prezime;
+                        <tr><td><button class="listaDugmadi">@red</button></td></tr>
+                    }
+                }
+            </table>
     		<div id="novi">
     		<form method="post">
     			<button class="btn btn-primary btn-block" id="btnPotvrdiVoznju" type="submit" style="background: #f82249;color:white;outline: none;"><b>POTVRDI VOŽNJU</b></button>
