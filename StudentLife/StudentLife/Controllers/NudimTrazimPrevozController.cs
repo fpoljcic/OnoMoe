@@ -8,7 +8,7 @@ namespace StudentLife.Controllers
 {
     public class NudimTrazimPrevozController : Controller
     {
-        public IActionResult nudimTrazimPrevoz()
+        public IActionResult NTP()
         {
             return View();
         }

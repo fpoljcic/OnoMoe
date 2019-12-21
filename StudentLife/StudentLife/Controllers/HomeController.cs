@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using StudentLife.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace StudentLife.Controllers
 {
@@ -36,8 +37,17 @@ namespace StudentLife.Controllers
 
         public async Task<IActionResult> DrugaStranica()
         {
-            
-            return View( "../NudimTrazimPrevoz/nudimTrazimPrevoz");
+            return View( "../NudimTrazimPrevoz/NTP");
+        }
+
+        public async Task<IActionResult> login( [Bind ("Username,Passwordd")] string Username, string Passwordd) {
+
+
+
+            return View( "../NudimTrazimPrevoz/NTP" );
+
+
+            return View("Index");
         }
 
 
