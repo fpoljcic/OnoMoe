@@ -11,10 +11,17 @@ namespace StudentLife.Models {
         [Required]
         public int VoznjaID { get; set; }
         [Required]
-        public int RegistrovaniStudentId { get; set; }
-        public RegistrovaniStudent RegistrovaniStudent { get; set; }
+        public int StudentId { get; set; }
+        public Student Student { get; set; }
         [Required]
-        public DateTime Polazak { get; set; }
+        public DateTime VrijemePolaska { get; set; }
+        [Required]
+        public string PocetakRute { get; set; }
+        [Required]
+        public string KrajRute { get; set; }
+
+        [Required]
+        public int BrojMjesta { get; set; }
 
 
 

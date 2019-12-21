@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentLife.Models {
     public class RegistrovaniStudent {
+        [ScaffoldColumn( false )]
 
         [Required]
         int RegistrovaniStudentId { get; set; }
