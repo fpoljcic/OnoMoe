@@ -42,20 +42,30 @@ namespace StudentLife.Controllers
 
 
 
-        public void UpisiStudenta ( [Bind( "StudentID,Ime,Prezime,Email,KorisnickoIme,Password" )] Student student, string Password2 )
+        public async Task<IActionResult> UpisiStudenta ( [Bind( "StudentID,Ime,Prezime,Email,KorisnickoIme,Password" )] Student student, string Password2 )
         {
             student.Bodovi = 0;
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
+                using (var db = new DatabaseContext())
+                {
+                    
+                    if (Password2 != student.Password)
+                        return View();
 
-                if (student.Password == Password2) { 
-                
-                
-                
-                
+                    Student registered = db.Student.Where( e => e.KorisnickoIme == student.KorisnickoIme ).FirstOrDefault();
+                    if (registered != null)
+                        return View();
+                    
+                    db.Add( student );
+                    await db.SaveChangesAsync();
+                   // HttpContext.Session.SetString( "role", "Registred" );
+                   // HttpContext.Session.SetInt32( "id", registeredUserModel.UserModelId );
+
+                    return RedirectToAction( "Index", "Home" );
                 }
-            
-            
             }
+            return View( student );
 
 
         }
