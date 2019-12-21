@@ -77,11 +77,6 @@
     <section id="intro">
     	<div class="intro-container wow fadeIn">
             <table id="listaVoznji">
-                <tr><td><button class="listaDugmadi">Lista1</button><button class="pending">Na čekanju</button></td></tr>
-                <tr><td><button class="listaDugmadi">Lista2</button><button class="pending">Na čekanju</button></td></tr>
-                <tr><td><button class="listaDugmadi">Lista3</button><button class="accepted">Prihvaćeno</button></td></tr>
-                <tr><td><button class="listaDugmadi">Lista4</button><button class="pending">Na čekanju</button></td></tr>
-                <tr><td><button class="listaDugmadi">Lista5</button><button class="accepted">Prihvaćeno</button></td></tr>
 
                 @{
                    
@@ -90,7 +85,20 @@
                     {
                         Student student = new DatabaseContext().dajStudenta(voznje[i].StudentID);
                         string red = @voznje[i].VrijemePolaska.ToShortTimeString() + " - " + @student.Ime + " " + @student.Prezime;
-                        <tr><td><button class="listaDugmadi">@red</button></td></tr>
+                        <tr><td>
+    <button class="listaDugmadi">@red</button>
+    @{
+        Marker m = new DatabaseContext().dajMarker((int)ViewData["id"], @voznje[i].VoznjaID);
+        if (m.Status == 1)
+        {
+            <button class="accepted">Prihvaćeno</button>
+        }
+        else
+        {
+            <button class="pending">Na čekanju</button>
+        }
+    }
+</td></tr>
                     }
                 }
             </table>

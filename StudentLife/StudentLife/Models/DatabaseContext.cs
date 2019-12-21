@@ -42,6 +42,11 @@ namespace StudentLife.Models {
             return Student.Where((Student student) => student.StudentID == id).FirstOrDefault();
         }
 
+        public Marker dajMarker(int studentID,int voznjaID)
+        {
+            return Marker.Where((Marker marker) => marker.StudentID == studentID && marker.VoznjaID ==voznjaID).FirstOrDefault();
+        }
+
         public List<Voznja> dajVoznje(string datum, string vrijeme)
         {
             DateTime dateTime = new DateTime(Convert.ToInt32(datum.Substring(0, datum.IndexOf("-"))), Convert.ToInt32(datum.Substring(datum.IndexOf("-") + 1, datum.Length - datum.LastIndexOf("-") - 1)), Convert.ToInt32(datum.Substring(datum.LastIndexOf("-") + 1)));
@@ -63,7 +68,8 @@ namespace StudentLife.Models {
             List<Voznja> voznje = new List<Voznja>();
             foreach (Marker m in markeri)
             {
-                voznje.Add(m.Voznja);
+                Voznja v = Voznja.Where(voznja => voznja.VoznjaID == m.VoznjaID).FirstOrDefault();
+                voznje.Add(v);
             }
             return voznje;
         }
