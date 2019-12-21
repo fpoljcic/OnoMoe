@@ -42,15 +42,21 @@ namespace StudentLife.Controllers
 
         public async Task<IActionResult> login( [Bind ("Username,Passwordd")] string Username, string Passwordd) {
             
+        
+
             using (var db = new DatabaseContext())
             {
                 Student s = db.Student.Where( e => e.KorisnickoIme == Username && e.Password == Passwordd ).FirstOrDefault();
-                if(s == null)
-                    return View( "Index" );
+                if (s == null)
+                    return View( "Index", "Home" );
 
                 HttpContext.Session.SetInt32( "id", s.StudentID );
                 HttpContext.Session.SetString( "user", s.KorisnickoIme );
                 HttpContext.Session.SetString( "ime", s.Ime );
+                ViewData["id"] = s.StudentID;
+                ViewData["user"] = s.KorisnickoIme; 
+                ViewData["ime"] = s.Ime;
+                ViewData["prezime"] = s.Prezime;
 
             }
             return View("../NudimTrazimPrevoz/nudimTrazimPrevoz");
