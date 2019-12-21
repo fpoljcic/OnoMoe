@@ -19,7 +19,7 @@ namespace StudentLife.Models {
         [Required]
         string Password { get; set; }
         [Required]
-        int bodovi { get; set; }
+        int Bodovi { get; set; }
         [Required]
         public string KorisnickoIme { get; set; }
 
