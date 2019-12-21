@@ -82,6 +82,17 @@
                 <tr><td><button class="listaDugmadi">Lista3</button><button class="accepted">Prihvaćeno</button></td></tr>
                 <tr><td><button class="listaDugmadi">Lista4</button><button class="pending">Na čekanju</button></td></tr>
                 <tr><td><button class="listaDugmadi">Lista5</button><button class="accepted">Prihvaćeno</button></td></tr>
+
+                @{
+                   
+                    List<Voznja> voznje = new DatabaseContext().MojeTrazeneVoznje((int)ViewData["id"]);
+                    for (int i = 0; i < voznje.Count; i++)
+                    {
+                        Student student = new DatabaseContext().dajStudenta(voznje[i].StudentID);
+                        string red = @voznje[i].VrijemePolaska.ToShortTimeString() + " - " + @student.Ime + " " + @student.Prezime;
+                        <tr><td><button class="listaDugmadi">@red</button></td></tr>
+                    }
+                }
             </table>
     		<div id="novi"> 
     	</div>
