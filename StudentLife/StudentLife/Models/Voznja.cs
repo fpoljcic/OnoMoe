@@ -12,9 +12,9 @@ namespace StudentLife.Models {
         public int VoznjaID { get; set; }
         [Required]
         public int RegistrovaniStudentId { get; set; }
-        public RegistrovaniStudent student { get; set; }
+        public RegistrovaniStudent RegistrovaniStudent { get; set; }
         [Required]
-        public DateTime polazak { get; set; }
+        public DateTime Polazak { get; set; }
 
 
 
