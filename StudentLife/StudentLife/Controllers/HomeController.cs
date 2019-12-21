@@ -34,13 +34,28 @@ namespace StudentLife.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        public async Task<IActionResult> DrugaStranica()
+        {
+            
+            return View( "../NudimTrazimPrevoz/nudimTrazimPrevoz");
+        }
+
+
 
         public void UpisiStudenta ( [Bind( "StudentID,Ime,Prezime,Email,KorisnickoIme,Password" )] Student student, string Password2 )
         {
+            student.Bodovi = 0;
+            if (ModelState.IsValid) {
 
-            Console.WriteLine( student.Ime );
-        
-
+                if (student.Password == Password2) { 
+                
+                
+                
+                
+                }
+            
+            
+            }
 
 
         }
