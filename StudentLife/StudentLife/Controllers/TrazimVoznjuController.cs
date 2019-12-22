@@ -12,10 +12,10 @@ namespace StudentLife.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> rezervisiMjesto([Bind("id")] int Id)
+        public async Task<IActionResult> rezervisiMjesto([Bind( "hiddenId" )] string hiddenId )
         {
-            int a = (int)ViewData["hiddenId"];
-            return View("../MojeTrazeneVoznje/mojeTrazeneVoznje");
+            
+            return View("Index","MojeTrazeneVoznje");
         }
     }
 }

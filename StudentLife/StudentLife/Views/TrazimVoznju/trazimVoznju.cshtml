@@ -82,13 +82,13 @@
                     {
                         Student student = new DatabaseContext().dajStudenta(voznje[i].StudentID);
                         string red = @voznje[i].VrijemePolaska.ToShortTimeString() + " - " + @student.Ime + " " + @student.Prezime;
-                        <tr><td><button class="listaDugmadi" type="submit" onclick="promjeniCentar(@voznje[i].PocetakRute, @voznje[i].KrajRute)">@red</button></td></tr>
+                        <tr><td><button class="listaDugmadi" type="submit" onclick="postaviValue(@voznje[i].VoznjaID);promjeniCentar(@voznje[i].PocetakRute, @voznje[i].KrajRute)">@red</button></td></tr>
                     }
                 }
             </table>
             <div id="novi">
                 <form method="post" asp-controller="TrazimVoznju" asp-action="rezervisiMjesto">
-                    <input type="hidden" name="hiddenId" value="jaskdhaskd" />
+                    <input id="hh1" type="hidden" name="hiddenId" />
                     <button class="btn btn-primary btn-block" id="btnPotvrdiVoznju" type="submit" style="background: #f82249;color:white;outline: none;"><b>POTVRDI VOŽNJU</b></button>
                 </form>
             </div>
@@ -220,6 +220,11 @@
         <!-- Template Main Javascript File -->
         <script src="~/js/main.js"></script>
         <script src="~/js/skripta.js"></script>
+        <script>
+            function postaviValue(broj) {
+                document.getElementById("hh1").value = broj;
+            }
+        </script>
 </body>
 
 </html>
