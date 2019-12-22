@@ -2,6 +2,7 @@ var roundLatLng = Formatters.roundLatLng;
 var marker1Centar = [18.303172, 43.833783];
 var marker2Centar = [18.397759, 43.855403];
 var centar = [(marker1Centar[0] + marker2Centar[0]) / 2, (marker1Centar[1] + marker2Centar[1]) / 2];
+var markeri = [];
 var popup = new tt.Popup({
     offset: 35
 });
@@ -191,3 +192,47 @@ function removeAll() {
     markerK.remove();
     izbrisi = true;
 }
+
+function popuniMarkerima(pocetak, kraj, lista) {
+    var lis = lista.split("*");
+    marker1.remove();
+    marker2.remove();
+    marker1Centar = pocetak;
+    marker2Centar = kraj;
+    marker1 = createMarker('https://img.icons8.com/ios-filled/50/000000/a.png', marker1Centar, '#0000CD', 'Početak', false);
+    marker2 = createMarker('https://img.icons8.com/ios-filled/50/000000/b.png', marker2Centar, '#0000CD', 'Kraj', false);
+
+    var j;
+    for (j = 0; j < lis.length; j++) {
+        x = lis[j].substring(1, lis[j].indexOf(','));
+        y = lis[j].substring(lis[j].indexOf(',') + 1);
+        y = y.substring(0, y.length - 2);
+        z = lis[j][lis[j].length - 1];
+        var koord = [x, y];
+        if (z == "0")
+            markeri.push(createMarker('https://img.icons8.com/ios-filled/50/000000/contacts.png', koord, '#f82249', 'Na čekanju', false));
+        else
+            createMarker('https://img.icons8.com/ios-filled/50/000000/contacts.png', koord, '#1bf00f', 'Prihvaćeno', false);
+    } 
+
+    centar = [(marker1Centar[0] + marker2Centar[0]) / 2, (marker1Centar[1] + marker2Centar[1]) / 2];
+    map.setCenter(centar);
+    if (i != 1)
+        map.removeLayer('route' + i);
+    i++;
+    obojiRutu();
+
+}
+
+map.on('click', function (event) {
+    var lngLat = new tt.LngLat(roundLatLng(event.lngLat.lng), roundLatLng(event.lngLat.lat));
+    var k = 0;
+    for (k = 0; k < markeri.length; k++) {
+        lngLatM = markeri[k].getLngLat();
+        if (Math.abs(lngLat.lng - lngLatM.lng) <= 0.005 && Math.abs(lngLat.lat - lngLatM.lat) <= 0.005) {
+            createMarker('https://img.icons8.com/ios-filled/50/000000/contacts.png', lngLatM, '#1bf00f', 'Prihvaćeno', false);
+            markeri[k].remove();
+            azurirajBazu(lngLatM);
+        }
+    }
+});

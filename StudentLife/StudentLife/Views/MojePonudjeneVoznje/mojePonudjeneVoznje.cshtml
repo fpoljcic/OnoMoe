@@ -84,7 +84,7 @@
                         string red = @voznje[i].VrijemePolaska.ToShortTimeString();
                         <tr>
                             <td>
-                                <button class="listaDugmadi">@red</button>
+                                <button class="listaDugmadi" type="submit" onclick="popuniMarkerima(@voznje[i].PocetakRute, @voznje[i].KrajRute, '@(new DatabaseContext().vratiMarkere(voznje[i].VoznjaID))');">@red</button>
                             </td>
                         </tr>
                     }
@@ -223,6 +223,11 @@
         <script src="~/js/skripta.js"></script>
         <script>
             removeAll();
+            function azurirajBazu(lngLatM) {
+                @{
+                    //(new DatabaseContext().Marker.Where(m => m.Koordinate.Equals(lngLatM)))
+                }
+            };
         </script>
 </body>
 

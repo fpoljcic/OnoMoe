@@ -79,5 +79,19 @@ namespace StudentLife.Models {
             }
             return voznje;
         }
+
+        public string vratiMarkere(int idVoznje)
+        {
+            string rezultat = "";
+            List<Marker> markeri = Marker.Where(m => m.VoznjaID == idVoznje).ToList();
+            foreach (Marker m in markeri)
+            {
+                rezultat += m.Koordinate + m.Status + "*";
+            }
+            if (rezultat.Length <= 1)
+                return rezultat;
+            rezultat = rezultat.Substring(0, rezultat.Length - 1);
+            return rezultat;
+        }
     }
 }
