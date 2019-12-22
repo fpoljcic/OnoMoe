@@ -2,57 +2,61 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<title>StudentLife</title>
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<meta content="" name="keywords">
-	<meta content="" name="description">
-	<link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+    <meta charset="utf-8">
+    <title>StudentLife</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.42.0/maps/maps.css">
+    <link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.42.0/maps/css-styles/routing.css">
+    <link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/5.x/5.42.0//examples/pages/examples/assets/ui-library/index.css">
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.42.0/maps/maps-web.min.js"></script>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/5.x/5.42.0//examples/pages/examples/assets/js/mobile-or-tablet.js"></script>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/5.x/5.42.0//examples/pages/examples/assets/js/formatters.js"></script>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.42.0/services/services-web.min.js"></script>
+    <!-- Favicons -->
+    <link href="~/img/favicon.png" rel="icon">
+    <link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-	<!-- Favicons -->
-	<link href="~/img/favicon.png" rel="icon">
-	<link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
 
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+    <!-- Bootstrap CSS File -->
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-	<!-- Bootstrap CSS File -->
-	<link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Libraries CSS Files -->
+    <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="~/lib/venobox/venobox.css" rel="stylesheet">
+    <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
-	<!-- Libraries CSS Files -->
-	<link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<link href="~/lib/animate/animate.min.css" rel="stylesheet">
-	<link href="~/lib/venobox/venobox.css" rel="stylesheet">
-	<link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <!-- Main Stylesheet File -->
+    <link href="~/css/nagrade.css" rel="stylesheet">
 
-	<!-- Main Stylesheet File -->
-	<link href="~/css/nagrade.css" rel="stylesheet">
-
-  <!-- =======================================================
-    Theme Name: TheEvent
-    Theme URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-    ======================================================= -->
+    <!-- =======================================================
+      Theme Name: TheEvent
+      Theme URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
+      Author: BootstrapMade.com
+      License: https://bootstrapmade.com/license/
+      ======================================================= -->
 </head>
 
 <body>
-    
 
-  <!--==========================
-    Header
-    ============================-->
+    <!--==========================
+      Header
+      ============================-->
     <header id="header">
-    	<div class="container">
+        <div class="container">
 
-    		<div id="logo" class="pull-left">
-    			<!-- Uncomment below if you prefer to use a text logo -->
-    			<!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
-    			<a href="#intro" class="scrollto"><img src="~/img/logo.png" alt="" title=""></a>
-    		</div>
+            <div id="logo" class="pull-left">
+                <!-- Uncomment below if you prefer to use a text logo -->
+                <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
+                <a href="#intro" class="scrollto"><img src="~/img/logo.png" alt="" title=""></a>
+            </div>
 
-    		<nav id="nav-menu-container">
-    			<form asp-controller="Home" asp-action="Index">
+            <nav id="nav-menu-container">
+                <form asp-controller="Home" asp-action="Index">
                     <ul class="nav-menu">
                         <li><a href="@Url.Action("Index", "NudimTrazimPrevoz")">Početna</a></li>
                         <li><a href="@Url.Action("Index", "MojePonudjeneVoznje")">Moje ponuđene vožnje</a></li>
@@ -62,57 +66,51 @@
                         <li><button id="btnOdjaviSe" type="submit" style="background: #f82249; border-radius: 50px; border: none; width:100px;color:white">Odjavi se</button></li>
                         <li></li>
                     </ul>
-    			</form>
-    		</nav><!-- #nav-menu-container -->
-    	</div>
+                </form>
+            </nav><!-- #nav-menu-container -->
+        </div>
     </header><!-- #header -->
-
-  <!--==========================
-    Intro Section
-    ============================-->
+    <!--==========================
+      Intro Section
+      ============================-->
     <section id="intro">
-    	<div class="intro-container wow fadeIn">
-    		<h1 class="mb-4 pb-0">Dobrodošli <span>@ViewData["ime"] @ViewData["prezime"]</span>!</h1>  
-    	</div>
+        <div class="formaRegister">
+            <p>Moguće nagrade</p>
+            <table id="moguceNagrade">
+                <tr><td><button class="listaDugmadi">Poklon bon u Sport Lifeu 5%</button><button class="accepted">Preuzmi nagradu</button></td></tr>
+                <tr><td><button class="listaDugmadi">Poklon bon u Nikeu  15%</button><button class="accepted">Preuzmi nagradu</button></td></tr>
+            </table>
+            <div id="novi">
+            </div>
 
-    	<div id="formaRegister">
+        </div>
 
-    			<button class="btn btn-primary btn-block" id="btnNudimVoznju" onclick="pritisniTrazimVoznju()" type="submit" style="background: white;color:black;outline: none; margin-right: 10px;"><b>TRAŽIM VOŽNJU</b></button>
-    			
-    		<form asp-controller="NudimTrazimPrevoz" asp-action="Nudim">
-    			<button class="btn btn-primary btn-block" id="btnTrazimVoznju" type="submit" style="background: #f82249;color:white;outline: none;margin-left: 10px;"><b>NUDIM VOŽNJU</b></button>
-    		</form>       
-    	</div>
-    	<script>
-    				function pritisniTrazimVoznju() {
-    					document.getElementById("formaRegister").innerHTML = "<div id=\"novi\"><p id=\"datumVrijeme\">Datum</p><form action=\"/NudimTrazimPrevoz/pretrazi\" method=\"post\"><input name=\"datum\" data-role=\"datepicker\" data-year=\"false\"><br><br><br><br><p id=\"datumVrijeme\">Vrijeme</p><input name=\"vrijeme\" data-role=\"timepicker\" data-seconds=\"false\"><br><button class=\"btn btn-primary btn-block\" id=\"btnTrazimVoznju\" type=\"submit\" style=\"background: #4ee44e;color:white;outline: none;margin:0;\"><b>POTVRDI</b></button></form></div>";
-    				}
-    	</script>
+       
     </section>
 
     <main id="main">
 
         <!--==========================
-      About Section
-      ============================-->
+          About Section
+          ============================-->
         <!--==========================
-      Speakers Section
-      ============================-->
+          Speakers Section
+          ============================-->
         <!--==========================
-      Schedule Section
-      ============================-->
+          Schedule Section
+          ============================-->
         <!--==========================
-      Venue Section
-      ============================-->
+          Venue Section
+          ============================-->
         <!--==========================
-      Hotels Section
-      ============================-->
+          Hotels Section
+          ============================-->
         <!--==========================
-      Gallery Section
-      ============================-->
+          Gallery Section
+          ============================-->
         <!--==========================
-      Sponsors Section
-      ============================-->
+          Sponsors Section
+          ============================-->
         <section id="supporters" class="section-with-bg wow fadeInUp">
 
             <div class="container">
@@ -177,25 +175,23 @@
         </section>
 
         <!--==========================
-      F.A.Q Section
-      ============================-->
+          F.A.Q Section
+          ============================-->
         <!--==========================
-      Subscribe Section
-      ============================-->
+          Subscribe Section
+          ============================-->
         <!--==========================
-      Buy Ticket Section
-      ============================-->
+          Buy Ticket Section
+          ============================-->
         <!--==========================
-      Contact Section
-      ============================-->
+          Contact Section
+          ============================-->
         <!--==========================
-      Footer
-      ============================-->
+          Footer
+          ============================-->
 
 
         <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
-
-        <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
 
         <!-- JavaScript Libraries -->
         <script src="~/lib/jquery/jquery.min.js"></script>
@@ -208,9 +204,10 @@
         <script src="~/lib/venobox/venobox.min.js"></script>
         <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
 
+
         <!-- Template Main Javascript File -->
         <script src="~/js/main.js"></script>
-
+        <script src="~/js/skripta.js"></script>
 </body>
 
 </html>
