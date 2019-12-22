@@ -16,6 +16,9 @@ namespace StudentLife.Controllers
         }
         public async Task<IActionResult> rezervisiMjesto([Bind( "hiddenId,hiddenId2" )] string hiddenId , string hiddenId2 )
         {
+            ViewData["id"] = HttpContext.Session.GetInt32("id");
+            if (hiddenId == null)
+                return View("../MojeTrazeneVoznje/mojeTrazeneVoznje");
             Marker m = new Marker();
             m.StudentID =  HttpContext.Session.GetInt32("id").Value;
             m.VoznjaID = Int32.Parse(hiddenId);

@@ -78,16 +78,16 @@
         <div class="intro-container wow fadeIn">
             <table id="listaVoznji">
                 @{
-                    List<Voznja> voznje = new DatabaseContext().dajVoznje( ViewData["datum"].ToString(), ViewData["vrijeme"].ToString() );
+                    List<Voznja> voznje = new DatabaseContext().dajVoznje(ViewData["datum"].ToString(), ViewData["vrijeme"].ToString());
                     int count = 0;
                     for (int i = 0; i < voznje.Count; i++)
                     {
-                        Int32 s = Convert.ToInt32( ViewData["id"] );
-                        Marker markeri = new DatabaseContext().dajMarker( (int)ViewData["id"], voznje[i].VoznjaID );
+                        Int32 s = Convert.ToInt32(ViewData["id"]);
+                        Marker markeri = new DatabaseContext().dajMarker((int)ViewData["id"], voznje[i].VoznjaID);
                         if (markeri != null)
                             continue;
                         count++;
-                        Student student = new DatabaseContext().dajStudenta( voznje[i].StudentID );
+                        Student student = new DatabaseContext().dajStudenta(voznje[i].StudentID);
                         string red = @voznje[i].VrijemePolaska.ToShortTimeString() + " - " + @student.Ime + " " + @student.Prezime;
                         <tr><td><button class="listaDugmadi" type="submit" onclick="postaviValue(@voznje[i].VoznjaID); promjeniCentar(@voznje[i].PocetakRute, @voznje[i].KrajRute); postaviUpdate();">@red</button></td></tr>
                     }
@@ -99,11 +99,11 @@
                     <input id="hh2" type="hidden" name="hiddenId2" />
                     @{ string prikaz;
                         if (count > 0)
-                                prikaz = "";
-                            else
-                                prikaz = "display:none;";
+                            prikaz = "";
+                        else
+                            prikaz = "display:none;";
                         <button class="btn btn-primary btn-block" id="btnPotvrdiVoznju" onclick="postaviValueMarker" type="submit" style="background: #f82249;color:white;@prikaz outline: none;"><b>POTVRDI VOŽNJU</b></button>
-                        }
+                    }
                 </form>
             </div>
         </div>
@@ -236,13 +236,13 @@
         <script src="~/js/skripta.js"></script>
         <script>
             postaviUpdate();
-                        document.getElementById("hh2").value = centar;
+            document.getElementById("hh2").value = centar;
             function postaviValue(broj) {
-                            document.getElementById("hh1").value = broj;
-                        }
-                        function postaviValueMarker() {
-                            document.getElementById("hh2").value = centar;
-                        }
+                document.getElementById("hh1").value = broj;
+            }
+            function postaviValueMarker() {
+                document.getElementById("hh2").value = centar;
+            }
         </script>
 </body>
 
