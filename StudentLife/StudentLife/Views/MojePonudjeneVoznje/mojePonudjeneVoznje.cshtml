@@ -98,7 +98,12 @@
         <div class="formaRegister">
 
             <div id='map' class='map'></div>
-
+            <form asp-controller="MojePonudjeneVoznje" asp-action="potvrdi">
+                <button class="btn btn-primary btn-block" id="btnPonudi" type="submit" style="background: #4ee44e;color:white;outline: none;margin:0;margin-top:580px;">
+                    <b>POTVRDI</b>
+                </button>
+                <input id="poljeH" name="poljeH" type="hidden" />
+            </form>
         </div>
     </section>
 
@@ -221,12 +226,12 @@
         <!-- Template Main Javascript File -->
         <script src="~/js/main.js"></script>
         <script src="~/js/skripta.js"></script>
+        
         <script>
             removeAll();
             function azurirajBazu(lngLatM) {
-                @{
-                    //(new DatabaseContext().Marker.Where(m => m.Koordinate.Equals(lngLatM)))
-                }
+                console.log(lngLatM.lng + "," + lngLatM.lat);
+                document.getElementById("poljeH").value = lngLatM.lng + "," + lngLatM.lat;
             };
         </script>
 </body>
