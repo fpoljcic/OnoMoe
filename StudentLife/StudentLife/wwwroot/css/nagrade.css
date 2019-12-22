@@ -588,20 +588,20 @@ body.mobile-nav-active {
     }
 
 #moguceNagrade {
-    width: 40vw;
+    width: 35vw;
     background-color: rgba(0,0,0,0.3);
     border: solid #ffffff 1.5px;
 }
 
 .listaDugmadi {
-    width: 24vw;
+    width: 35vw;
     background-color: rgba(0,0,0,0.3);
     border: solid rgba(0,0,0,0.3) 1.5px;
     color: white;
     font-family: "Raleway";
     font-weight: bold;
     text-transform: uppercase;
-    text-align: left;
+    text-align: center;
 }
 
   
@@ -626,7 +626,7 @@ body.mobile-nav-active {
 }
 
 .accepted {
-    width: 15vw;
+    width: 10vw;
     background-color: #1bf00f;
     border-color: #1bf00f;
     border-radius: 5px;
@@ -634,7 +634,7 @@ body.mobile-nav-active {
     font-family: "Raleway";
     font-weight: bold;
     text-transform: uppercase;
-    text-align: left;
+    text-align: center;
     font-size: 13px;
 }
 

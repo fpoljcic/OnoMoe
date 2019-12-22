@@ -53,6 +53,7 @@ namespace StudentLife.Controllers
                 HttpContext.Session.SetInt32( "id", s.StudentID );
                 HttpContext.Session.SetString( "user", s.KorisnickoIme );
                 HttpContext.Session.SetString( "ime", s.Ime );
+                HttpContext.Session.SetInt32("bodovi", s.Bodovi);
                 ViewData["id"] = s.StudentID;
                 ViewData["user"] = s.KorisnickoIme; 
                 ViewData["ime"] = s.Ime;

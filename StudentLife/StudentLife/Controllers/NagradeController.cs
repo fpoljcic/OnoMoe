@@ -12,7 +12,10 @@ namespace StudentLife.Controllers
         public IActionResult Index()
         {
             ViewData["id"] = HttpContext.Session.GetInt32("id");
+            ViewData["bodovi"] = HttpContext.Session.GetInt32("bodovi");
             return View("nagrade");
         }
+
+       
     }
 }

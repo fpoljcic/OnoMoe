@@ -81,7 +81,7 @@
                     List<Nagrade> nagrade = new DatabaseContext().dajNagrade();
                     foreach (Nagrade n in nagrade)
                     {
-                        <tr><td><button class="listaDugmadi">@n.NazivNagrade (@n.BrojBodova poena)</button><button class="accepted">Preuzmi nagradu</button></td></tr>
+                        <tr><td><button class="listaDugmadi">@n.NazivNagrade (@n.BrojBodova poena)</button><form asp-controller="Nagrade" asp-action="skiniBodove"><button class="accepted">Preuzmi nagradu</button></form></td></tr>
                     }
                 }
             </table>
@@ -92,7 +92,7 @@
 
         <div class="formaRegister">
             <img src="~/img/redeem.png" alt="" title="">
-            <p style="font-size:20px">Broj bodova: @ViewData["id"]</p>
+            <p style="font-size:20px">Broj bodova: @ViewData["bodovi"]</p>
         </div>
     </section>
 
