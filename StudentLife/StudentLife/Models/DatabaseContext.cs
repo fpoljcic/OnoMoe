@@ -43,6 +43,11 @@ namespace StudentLife.Models {
             return Student.Where((Student student) => student.StudentID == id).FirstOrDefault();
         }
 
+        public List<Nagrade> dajNagrade()
+        {
+            return Nagrade.ToList();
+        }
+
         public Marker dajMarker(int studentID,int voznjaID)
         {
             return Marker.Where((Marker marker) => marker.StudentID == studentID && marker.VoznjaID ==voznjaID).FirstOrDefault();
