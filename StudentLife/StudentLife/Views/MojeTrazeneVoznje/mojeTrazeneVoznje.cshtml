@@ -49,12 +49,13 @@
     <header id="header">
     	<div class="container">
 
-    		<div id="logo" class="pull-left">
-    			<!-- Uncomment below if you prefer to use a text logo -->
-    			<!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
-    			<a href="#intro" class="scrollto"><img src="~/img/logo.png" alt="" title=""></a>
-    		</div>
-
+            <div id="logo" class="pull-left">
+                <!-- Uncomment below if you prefer to use a text logo -->
+                <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
+                <a href="#intro" class="scrollto"><img src="~/img/logo.png" alt="" title=""></a>
+             
+            </div>
+           
     		<nav id="nav-menu-container">
     			<form asp-controller="Home" asp-action="Index">
                     <ul class="nav-menu">
@@ -62,8 +63,9 @@
                         <li><a href="@Url.Action("Index", "MojePonudjeneVoznje")">Moje ponuđene vožnje</a></li>
                         <li><a href="@Url.Action("Index", "MojeTrazeneVoznje")">Moje tražene vožnje</a></li>
                         <li><a href="@Url.Action("Index", "Nagrade")">Nagrade</a></li>
-                        <li> </li>
+                        <li></li>
                         <li><button id="btnOdjaviSe" type="submit" style="background: #f82249; border-radius: 50px; border: none; width:100px;color:white">Odjavi se</button></li>
+
                         <li></li>
                     </ul>
     			</form>

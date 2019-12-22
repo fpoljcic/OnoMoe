@@ -551,7 +551,7 @@ body.mobile-nav-active {
         flex-direction: column;
         text-align: center;
         padding: 0 15px;
-        
+        margin-left: 600px;
     }
 
     #intro #novi {
@@ -641,7 +641,11 @@ body.mobile-nav-active {
     font-weight: bold;
     text-transform: uppercase;
     text-align: left;
-    font-size: 15px;
+    font-size: 13px;
+}
+
+#bodoviLabel{
+    font-size: 200px;
 }
 
 #intro .play-btn {
