@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudentLife.Models;
 
 namespace StudentLife.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20191222015028_ZadnjaAbd")]
+    partial class ZadnjaAbd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,25 +48,6 @@ namespace StudentLife.Migrations
                     b.HasIndex("VoznjaID");
 
                     b.ToTable("Marker");
-                });
-
-            modelBuilder.Entity("StudentLife.Models.Nagrade", b =>
-                {
-                    b.Property<int>("NagradeID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BrojBodova")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NazivNagrade")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("NagradeID");
-
-                    b.ToTable("Nagrade");
                 });
 
             modelBuilder.Entity("StudentLife.Models.Student", b =>

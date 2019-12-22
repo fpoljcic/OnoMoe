@@ -15,7 +15,7 @@ namespace StudentLife.Models {
             : base( options )
         { }
 
-
+        public DbSet<Nagrade> Nagrade { get; set; }
         public DbSet<Student> Student { get; set; }
 
         public DbSet<Voznja> Voznja { get; set; }
@@ -32,6 +32,7 @@ namespace StudentLife.Models {
             modelBuilder.Entity<Student>().ToTable("Student");
             modelBuilder.Entity<Voznja>().ToTable( "Voznja" );
             modelBuilder.Entity<Marker>().ToTable( "Marker" );
+            modelBuilder.Entity<Nagrade>().ToTable( "Nagrade" );
             base.OnModelCreating( modelBuilder );
 
 

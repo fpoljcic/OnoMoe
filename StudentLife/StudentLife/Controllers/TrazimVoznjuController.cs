@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Http;
 namespace StudentLife.Controllers
 {
     public class TrazimVoznjuController : Controller
@@ -14,8 +14,8 @@ namespace StudentLife.Controllers
         }
         public async Task<IActionResult> rezervisiMjesto([Bind( "hiddenId" )] string hiddenId )
         {
-            
-            return View("Index","MojeTrazeneVoznje");
+            ViewData["id"] = HttpContext.Session.GetInt32( "id" );
+            return View("../MojeTrazeneVoznje/mojeTrazeneVoznje");
         }
     }
 }
