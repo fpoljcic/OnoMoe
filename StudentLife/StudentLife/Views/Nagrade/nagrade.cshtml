@@ -79,9 +79,10 @@
             <table id="moguceNagrade">
                 @{
                     List<Nagrade> nagrade = new DatabaseContext().dajNagrade();
+                    int brojac = 0;
                     foreach (Nagrade n in nagrade)
                     {
-                        <tr><td><button class="listaDugmadi">@n.NazivNagrade (@n.BrojBodova poena)</button><form asp-controller="Nagrade" asp-action="skiniBodove"><button class="accepted">Preuzmi nagradu</button></form></td></tr>
+                        <tr><td><form asp-controller="Nagrade" asp-action="skiniBodove" asp-route-brb="@n.BrojBodova"><button type="submit" class="listaDugmadi">@n.NazivNagrade (@n.BrojBodova poena)</button><button class="accepted">Preuzmi nagradu</button></form></td></tr>
                     }
                 }
             </table>
