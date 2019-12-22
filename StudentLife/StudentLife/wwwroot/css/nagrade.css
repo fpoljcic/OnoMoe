@@ -473,9 +473,6 @@ body.mobile-nav-active {
     padding-left: 7px;
 }
 
-    .usPlusPw:focus {
-        outline: none;
-    }
 
 #intro {
     width: 100%;
@@ -590,8 +587,8 @@ body.mobile-nav-active {
         border: none;
     }
 
-#listaVoznji {
-    width: 35vw;
+#moguceNagrade {
+    width: 40vw;
     background-color: rgba(0,0,0,0.3);
     border: solid #ffffff 1.5px;
 }
@@ -607,12 +604,9 @@ body.mobile-nav-active {
     text-align: left;
 }
 
-    .listaDugmadi:focus {
-        background-color: #f82249;
-        color: black
-    }
+  
 
-#listaVoznji tr, td {
+#moguceNagrade tr, td {
     background-color: rgba(0,0,0,0.3);
     border: solid #ffffff 1.5px;
     color: white;
@@ -632,7 +626,7 @@ body.mobile-nav-active {
 }
 
 .accepted {
-    width: 10vw;
+    width: 15vw;
     background-color: #1bf00f;
     border-color: #1bf00f;
     border-radius: 5px;
