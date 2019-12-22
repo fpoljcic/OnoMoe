@@ -32,6 +32,7 @@ namespace StudentLife.Controllers
 
         public async Task<IActionResult> Nudim()
         {
+            ViewData["ime"] = HttpContext.Session.GetInt32( "id" ).Value;
             return View( "../NudimVoznju/nudimVoznju" );
         }
     }
