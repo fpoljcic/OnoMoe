@@ -41,8 +41,19 @@ function onDragEnd2() {
     marker2.togglePopup();
 }
 
+function onDragEnd3() {
+    var lngLat = markerK.getLngLat();
+    lngLat = new tt.LngLat(roundLatLng(lngLat.lng), roundLatLng(lngLat.lat));
+    popup.setHTML(lngLat.toString());
+    popup.setLngLat(lngLat);
+    markerK.setPopup(popup);
+    markerK.togglePopup();
+}
+
 marker1.on('dragend', onDragEnd1);
 marker2.on('dragend', onDragEnd2);
+markerK.on('dragend', onDragEnd3);
+
 
 function findFirstBuildingLayerId() {
     var layers = map.getStyle().layers;
@@ -145,3 +156,14 @@ function postaviDrag() {
     marker1.on('dragend', rutiraj);
     marker2.on('dragend', rutiraj);
 }
+
+function postaviUpdate() {
+    markerK.on('dragend', upd);
+}
+
+function upd() {
+    var temp = markerK.getLngLat();
+    centar = [temp.lng, temp.lat];
+    postaviValueMarker();
+}
+

@@ -89,7 +89,9 @@
             <div id="novi">
                 <form method="post" asp-controller="TrazimVoznju" asp-action="rezervisiMjesto">
                     <input id="hh1" type="hidden" name="hiddenId" />
-                    <button class="btn btn-primary btn-block" id="btnPotvrdiVoznju" type="submit" style="background: #f82249;color:white;outline: none;"><b>POTVRDI VOŽNJU</b></button>
+                    <input id="hh2" type="hidden" name="hiddenId2" />
+
+                    <button class="btn btn-primary btn-block" id="btnPotvrdiVoznju" onclick="postaviValueMarker" type="submit" style="background: #f82249;color:white;outline: none;"><b>POTVRDI VOŽNJU</b></button>
                 </form>
             </div>
         </div>
@@ -221,8 +223,13 @@
         <script src="~/js/main.js"></script>
         <script src="~/js/skripta.js"></script>
         <script>
+            postaviUpdate();
+            document.getElementById("hh2").value = centar;
             function postaviValue(broj) {
                 document.getElementById("hh1").value = broj;
+            }
+            function postaviValueMarker() {
+                document.getElementById("hh2").value = centar;
             }
         </script>
 </body>
