@@ -58,14 +58,15 @@
             </div>
 
             <nav id="nav-menu-container">
-                <form method="post">
+                <form asp-controller="Home" asp-action="Index">
                     <ul class="nav-menu">
                         <li><a href="@Url.Action("Index", "NudimTrazimPrevoz")">Početna</a></li>
                         <li><a href="@Url.Action("Index", "MojePonudjeneVoznje")">Moje ponuđene vožnje</a></li>
                         <li><a href="@Url.Action("Index", "MojeTrazeneVoznje")">Moje tražene vožnje</a></li>
-                        <li> </li>
-                        <li> </li>
+                        <li><a href="@Url.Action("Index", "Nagrade")">Nagrade</a></li>
+                        <li></li>
                         <li><button id="btnOdjaviSe" type="submit" style="background: #f82249; border-radius: 50px; border: none; width:100px;color:white">Odjavi se</button></li>
+
                         <li></li>
                     </ul>
                 </form>
