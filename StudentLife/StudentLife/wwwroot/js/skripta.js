@@ -6,6 +6,7 @@ var popup = new tt.Popup({
     offset: 35
 });
 var i = 1;
+var izbrisi = false;
 
 var map = tt.map({
     key: 'Tx9B4cZ2IumFk28ymZwzp2B17tcHt6nZ',
@@ -66,7 +67,8 @@ function findFirstBuildingLayerId() {
 }
 
 map.once('load', function () {
-    obojiRutu();
+    if (!izbrisi)
+        obojiRutu();
 });
 
 function obojiRutu() {
@@ -167,3 +169,25 @@ function upd() {
     postaviValueMarker();
 }
 
+function promjeniC(pocetak, kraj, koordinate) {
+    marker1.remove();
+    marker2.remove();
+    markerK.remove();
+    marker1Centar = pocetak;
+    marker2Centar = kraj;
+    marker1 = createMarker('https://img.icons8.com/ios-filled/50/000000/a.png', marker1Centar, '#0000CD', 'Početak', false);
+    marker2 = createMarker('https://img.icons8.com/ios-filled/50/000000/b.png', marker2Centar, '#0000CD', 'Kraj', false);
+    centar = [(marker1Centar[0] + marker2Centar[0]) / 2, (marker1Centar[1] + marker2Centar[1]) / 2];
+    markerK = createMarker('https://img.icons8.com/ios-filled/50/000000/contacts.png', koordinate, '#0000CD', 'Vaša lokacija', false);
+    map.setCenter(centar);
+    map.removeLayer('route' + i);
+    i++;
+    obojiRutu();
+}
+
+function removeAll() {
+    marker1.remove();
+    marker2.remove();
+    markerK.remove();
+    izbrisi = true;
+}

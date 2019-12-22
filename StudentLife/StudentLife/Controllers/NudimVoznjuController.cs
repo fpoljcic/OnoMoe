@@ -23,8 +23,8 @@ namespace StudentLife.Controllers
                 DateTime dateTime = new DateTime(Convert.ToInt32(date.Substring(0, date.IndexOf("-"))), Convert.ToInt32(date.Substring(date.IndexOf("-") + 1, date.Length - date.LastIndexOf("-") - 1)), Convert.ToInt32(date.Substring(date.LastIndexOf("-") + 1)), Convert.ToInt32(time.Substring(0, time.IndexOf(":"))), Convert.ToInt32(time.Substring(time.IndexOf(":") + 1, time.Length - time.LastIndexOf(":") - 1)), 0);
                 Voznja v = new Voznja();
                 v.StudentID = (int)HttpContext.Session.GetInt32("id");
-                v.PocetakRute = pocetni;
-                v.KrajRute = krajnji;
+                v.PocetakRute = "[" + pocetni + "]";
+                v.KrajRute = "[" + krajnji + "]";
                 v.VrijemePolaska = dateTime;
                 v.BrojMjesta = cars;
                 new DatabaseContext().Add(v);
