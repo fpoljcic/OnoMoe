@@ -12,5 +12,10 @@ namespace StudentLife.Controllers
         {
             return View("mojePonudjeneVoznje");
         }
+
+        public IActionResult logout()
+        {
+            return View("../Home/Index");
+        }
     }
 }
