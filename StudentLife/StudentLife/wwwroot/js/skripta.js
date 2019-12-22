@@ -30,7 +30,6 @@ function onDragEnd1() {
     popup.setLngLat(lngLat);
     marker1.setPopup(popup);
     marker1.togglePopup();
-    promjeniCentar(marker1Centar, marker2Centar);
 }
 
 function onDragEnd2() {
@@ -127,7 +126,22 @@ function promjeniCentar(pocetak, kraj) {
     obojiRutu();
 }
 
+function rutiraj() {
+    var temp = marker1.getLngLat();
+    marker1Centar = [temp.lng, temp.lat];
+    var temp2 = marker2.getLngLat();
+    marker2Centar = [temp2.lng, temp2.lat];
+    map.removeLayer('route' + i);
+    i++;
+    obojiRutu();
+    updateMarker1();
+    updateMarker2();
+}
+
 function postaviDrag() {
     marker1.setDraggable(true);
     marker2.setDraggable(true);
+    markerK.remove();
+    marker1.on('dragend', rutiraj);
+    marker2.on('dragend', rutiraj);
 }
