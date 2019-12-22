@@ -8,7 +8,7 @@
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<meta content="" name="keywords">
 	<meta content="" name="description">
-	<link rel="stylesheet" href="izgled.css">
+	
 	<link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.42.0/maps/maps.css">
 	<link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.42.0/maps/css-styles/routing.css">
 	<link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/5.x/5.42.0//examples/pages/examples/assets/ui-library/index.css">
@@ -78,28 +78,33 @@
     ============================-->
     <section id="intro">
     	<div class="intro-container wow fadeIn">
-    	<form method="post">
+    	<form asp-controller="NudimVoznju" asp-action="PonudiVoznju">
     				<label for="date" class="formaNudim">Datum</p>
     				<input name="date" data-role="datepicker" data-year="false">
     				<br>
     				<label for="time" class="formaNudim">Vrijeme</p>
     				<input name="time" data-role="timepicker" data-seconds="false">
     				<br>
-    				<label for="cars" class="formaNudim">Broj sjedišta</p>
-    				<select name="cars">
-    					<option value="1">1</option>
-    					<option value="2">2</option>
-    					<option value="3">3</option>
-    					<option value="4">4</option>
-    					<option value="5">5</option>
-    					<option value="6">6</option>
-    				</select>
-    				<br>
-    				<button class="btn btn-primary btn-block" id="btnPonudi" type="submit" style="background: #4ee44e;color:white;outline: none;margin:0;">
-    					<b>PONUDI VOŽNJU</b>
-    				</button>
-    			</form>
+                    <label for="cars" class="formaNudim">
+                        Broj sjedišta</p>
+                        <select name="cars">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                        <input id="p1" name="pocetni" type="hidden" onchange="updateMarker1"/>
+                        <input id="p2" name="krajnji" type="hidden"/>
+
+                        <br>
+                        <button class="btn btn-primary btn-block" id="btnPonudi" type="submit" style="background: #4ee44e;color:white;outline: none;margin:0;">
+                            <b>PONUDI VOŽNJU</b>
+                        </button>
+</form>
     	</div>
+        
 
     	<div class="formaRegister">
     		<p id="mapaLabel">Unesi mjesto polaska i odredište na mapi</p>
@@ -248,7 +253,15 @@
     <!-- Template Main Javascript File -->
     <script src="~/js/main.js"></script>
     <script src="~/js/skripta.js"></script>
-    
+    <script>
+        postaviDrag();
+        function updateMarker1() {
+            document.getElementById('p1').value = marker1Centar;
+        }
+        function updateMarker2() {
+            document.getElementById('p2').value = marker2Centar;
+        }
+    </script>
 </body>
 
 </html>

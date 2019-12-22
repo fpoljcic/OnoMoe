@@ -30,6 +30,7 @@ function onDragEnd1() {
     popup.setLngLat(lngLat);
     marker1.setPopup(popup);
     marker1.togglePopup();
+    promjeniCentar(marker1Centar, marker2Centar);
 }
 
 function onDragEnd2() {
@@ -124,4 +125,9 @@ function promjeniCentar(pocetak, kraj) {
     map.removeLayer('route' + i);
     i++;
     obojiRutu();
+}
+
+function postaviDrag() {
+    marker1.setDraggable(true);
+    marker2.setDraggable(true);
 }
