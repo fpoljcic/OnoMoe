@@ -5,13 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\Nagrade\**" />
-    <Content Remove="Views\Nagrade\**" />
-    <EmbeddedResource Remove="Views\Nagrade\**" />
-    <None Remove="Views\Nagrade\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Remove="Migrations\20191221144728_MojaMigracija.cs" />
     <Compile Remove="Migrations\20191221144728_MojaMigracija.Designer.cs" />
   </ItemGroup>
@@ -33,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Nagrade\nagrade.cshtml" />
     <None Include="Views\NudimTrazimPrevoz\nudimTrazimPrevoz.cshtml" />
   </ItemGroup>
 
