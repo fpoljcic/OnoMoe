@@ -226,7 +226,7 @@ function popuniMarkerima(pocetak, kraj, lista) {
 
 map.on('click', function (event) {
     var lngLat = new tt.LngLat(roundLatLng(event.lngLat.lng), roundLatLng(event.lngLat.lat));
-    var k = 0;
+    var k;
     for (k = 0; k < markeri.length; k++) {
         lngLatM = markeri[k].getLngLat();
         if (Math.abs(lngLat.lng - lngLatM.lng) <= 0.005 && Math.abs(lngLat.lat - lngLatM.lat) <= 0.005) {
