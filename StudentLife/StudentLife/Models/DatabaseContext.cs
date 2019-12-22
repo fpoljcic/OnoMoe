@@ -60,6 +60,7 @@ namespace StudentLife.Models {
 
             List<Voznja> voznje = Voznja.Where((Voznja voznja) => voznja.VrijemePolaska.Date.Equals(dateTime.Date) && voznja.VrijemePolaska.TimeOfDay.CompareTo(dateTime2.TimeOfDay) >= 0 ).ToList();
             voznje.Sort((Voznja a, Voznja b) => DateTime.Compare(a.VrijemePolaska, b.VrijemePolaska));
+           voznje.RemoveAll( e => e.BrojMjesta <= 0 );
             return voznje;
         }
 
