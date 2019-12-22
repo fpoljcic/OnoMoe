@@ -21,14 +21,18 @@ namespace StudentLife.Controllers
             m.VoznjaID = Int32.Parse(hiddenId);
             m.Koordinate = "[" + hiddenId2 + "]";
             m.Status = 0;
+            ViewData["id"] = HttpContext.Session.GetInt32( "id" );
+
             using (var db = new DatabaseContext()) {
+                var test = db.Marker.Where( e => e.VoznjaID == m.VoznjaID && e.StudentID == m.StudentID ).FirstOrDefault();
+                if (test != null) { 
+                    return View( "../MojeTrazeneVoznje/mojeTrazeneVoznje" );
+                }
                 db.Add(m);
                 await db.SaveChangesAsync();
             
             
             }
-
-            ViewData["id"] = HttpContext.Session.GetInt32( "id" );
             return View("../MojeTrazeneVoznje/mojeTrazeneVoznje");
         }
     }

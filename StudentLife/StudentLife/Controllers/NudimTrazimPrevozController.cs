@@ -20,6 +20,8 @@ namespace StudentLife.Controllers
         {
             ViewData["datum"] = datum;
             ViewData["vrijeme"] = vrijeme;
+            int i = HttpContext.Session.GetInt32( "id" ).Value;
+            ViewData["id"] = i;
             return View("../TrazimVoznju/trazimVoznju");
         }
         

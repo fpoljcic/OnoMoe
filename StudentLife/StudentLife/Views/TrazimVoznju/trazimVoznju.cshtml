@@ -81,6 +81,10 @@
                     List<Voznja> voznje = new DatabaseContext().dajVoznje(ViewData["datum"].ToString(), ViewData["vrijeme"].ToString());
                     for (int i = 0; i < voznje.Count; i++)
                     {
+                        Int32 s = Convert.ToInt32( ViewData["id"] );
+                        Marker markeri = new DatabaseContext().dajMarker( (int) ViewData["id"],voznje[i].VoznjaID);
+                        if (markeri != null)
+                            continue;
                         Student student = new DatabaseContext().dajStudenta(voznje[i].StudentID);
                         string red = @voznje[i].VrijemePolaska.ToShortTimeString() + " - " + @student.Ime + " " + @student.Prezime;
                         <tr><td><button class="listaDugmadi" type="submit" onclick="postaviValue(@voznje[i].VoznjaID); promjeniCentar(@voznje[i].PocetakRute, @voznje[i].KrajRute); postaviUpdate();">@red</button></td></tr>
