@@ -67,6 +67,7 @@ namespace StudentLife.Controllers
 
         public async Task<IActionResult> UpisiStudenta ( [Bind( "StudentID,Ime,Prezime,Email,KorisnickoIme,Password" )] Student student, string Password2 )
         {
+            if (student.KorisnickoIme == null || student.Ime == null || student.Prezime == null || student.Email == null || student.StudentID == null || Password2 == null) return View("Index", "Home");
             student.Bodovi = 0;
             if (ModelState.IsValid)
             {
