@@ -61,7 +61,7 @@
                         <li><a href="@Url.Action("Index", "NudimTrazimPrevoz")">Početna</a></li>
                         <li><a href="@Url.Action("Index", "MojePonudjeneVoznje")">Moje ponuđene vožnje</a></li>
                         <li><a href="@Url.Action("Index", "MojeTrazeneVoznje")">Moje tražene vožnje</a></li>
-                        <li> </li>
+                        <li><a href="@Url.Action("Index", "Nagrade")">Nagrade</a></li>
                         <li> </li>
                         <li><button id="btnOdjaviSe" type="submit" style="background: #f82249; border-radius: 50px; border: none; width:100px;color:white">Odjavi se</button></li>
                         <li></li>
@@ -76,13 +76,19 @@
     ============================-->
     <section id="intro">
     	<div class="intro-container wow fadeIn">
-    		<table id="listaVoznji">
-    			<tr><td><button class="listaDugmadi">Lista1</button></td></tr>
-    			<tr><td><button class="listaDugmadi">Lista2</button></td></tr>
-    			<tr><td><button class="listaDugmadi">Lista3</button></td></tr>
-    			<tr><td><button class="listaDugmadi">Lista4</button></td></tr>
-    			<tr><td><button class="listaDugmadi">Lista5</button></td></tr>
-    		</table>
+            <table id="listaVoznji">
+                @{
+
+                    List<Voznja> voznje = new DatabaseContext().MojePonudjeneVoznje((int)ViewData["id"]);
+                    for (int i = 0; i < voznje.Count; i++)
+                    {
+                        string red = @voznje[i].VrijemePolaska.ToShortTimeString();
+                        <tr>
+                            <td>
+                                <button class="listaDugmadi">@red</button> </td></tr>
+                                }
+                               }
+                    </table>
     		<div id="novi"> 
     	</div>
 

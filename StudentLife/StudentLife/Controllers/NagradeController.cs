@@ -6,16 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace StudentLife.Controllers
 {
-    public class TrazimVoznjuController : Controller
+    public class NagradeController : Controller
     {
         public IActionResult Index()
         {
-            return View("trazimVoznju");
-        }
-
-        public void rezervisiMjesto()
-        {
-
+            return View("nagrade");
         }
     }
 }
