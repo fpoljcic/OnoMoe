@@ -1,5 +1,6 @@
 OnoMoe
 ============
+<img align="right" width="100" height="100" src="https://raw.githubusercontent.com/fpoljcic/OnoMoe/master/StudentLife/StudentLife/wwwroot/img/apple-touch-icon.png">
 
 This repository was used for a Hackathon project called StudentLife.
 It is the winning entry in a hackathon organized by the Electrical Engineering Students' European Association (EESTEC LC) for the "Innovation challenge" category. 
