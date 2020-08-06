@@ -5,9 +5,7 @@ OnoMoe
 This repository was used for a Hackathon project called StudentLife.
 It is the winning entry in a hackathon organized by the Electrical Engineering Students' European Association (EESTEC LC) for the "Innovation challenge" category. 
 
-The hackathon began on December 21, 2019, it lasted for 24 hours and the
-goal was to come up with a website that would make the life of students easier and implement a prototype. This was a team competition and I worked 
-along with Faris Šišić and Mirza Sinanović. 
+The hackathon began on December 21, 2019, it lasted for 24 hours and the goal was to come up with a website that would make the life of students easier and implement a prototype. A video of the app can be checked at the following [link](https://drive.google.com/file/d/1a7ta8ld5K6hlEtCvRrOf_cpGe86inVM6/view?usp=sharing).
 
 ## Team:
 
